@@ -6,7 +6,7 @@ import { listsupplier } from '../services/SupplierService';
 
 const ListPurchaseComponents = () => {
     const [purchases, setPurchase] = useState([]);
-    const [supplier, setSupplier] =useState([]);
+    const [supplier_name, setSupplier] =useState([]);
     const navigate = useNavigate();
     
     console.log("purchases :::::::::::::"+purchases);
@@ -35,7 +35,7 @@ const ListPurchaseComponents = () => {
        }
 
     const getSupplierName = (supplierId) => {
-        const selectedSupplier = supplier.find(s => s.id === supplierId);
+        const selectedSupplier = supplier_name.find(s => s.id === supplierId);
         return selectedSupplier ? selectedSupplier.supplier_name : '';
     };
       
@@ -64,7 +64,7 @@ const ListPurchaseComponents = () => {
                             <td>{purchase.id}</td>
                             <td>{purchase.invoice_no}</td>
                             <td>{purchase.invoice_date}</td>
-                            <td>{purchase.supplier ? getSupplierName(purchase.supplier.id) : 'N/A'}</td>
+                            <td>{purchase.supplier_name ? getSupplierName(purchase.supplier_name.id) : 'N/A'}</td>
                             <td>
                                 <Link className="btn btn-info" to={`/purchase_Details/${purchase.id}`}>
                                             View
